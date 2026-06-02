@@ -50,7 +50,8 @@ export default function SignInPage() {
     e.preventDefault();
     setLoading(true);
     const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) { alert(error.message); setLoading(false); }
+if (error) { alert(error.message); setLoading(false); return; }
+router.replace("/dashboard");
   }
 
   /* 🚀 Google OAuth — PRESERVED */
